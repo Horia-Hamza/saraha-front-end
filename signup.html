@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <link rel="stylesheet" href="./css/styleSignup.css" />
+  </head>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a href="#" class="logo"
+          ><img src="images/main/sarhne-nav.png" alt="logo"
+        /></a>
+        <ul>
+          <li><a href="./index.html">الرئيسية</a></li>
+          <li><a href="./signup.html">تسجيل حساب</a></li>
+          <li><a href="./signin.html">تسجيل دخول</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="page-container">
+      <div class="form_container">
+        <div class="form_container_1">
+          <div class="form-container">
+            <h2 class="">تسجيل</h2>
+            <form class="" id="signupForm">
+              <div class="">
+                <input
+                  placeholder=" المستخدم"
+                  class=""
+                  type="text"
+                  id="signupUserName"
+                  required
+                />
+              </div>
+              <input
+                placeholder="البريد الالكتروني"
+                class=""
+                type="email"
+                id="signupEmail"
+                required
+              />
+              <input
+                placeholder="كلمه المرور"
+                class=""
+                type="password"
+                id="signupPassword"
+                required
+              />
+              <input
+                placeholder="تاكيد كلمه المرور"
+                class=""
+                type="password"
+                id="signupConfirmPassword"
+                required
+              />
+              <label class="" for="gender"> الجنس </label>
+              <select class="" id="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <p class="text-black-200 mt-4">
+                بالفعل لدى حســاب ?
+                <a class="" href="./signin.html"> تسجيل دخول </a>
+              </p>
+              <button class="" type="submit">تسجيل</button>
+            </form>
+          </div>
+          <div class="text">
+            <p class="">
+              By signing up, you agree to the terms of use and privacy policy.
+            </p>
+            <p class="">© 2023 Sarahah. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+      <div class="image">
+        <img src="./images/signup/Signup.gif" alt="signup" />
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      // Function to handle sign-up
+      // Function to handle sign-up
+      async function signUp(event) {
+        event.preventDefault(); // Prevent default form submission
+        //
+        const userName = document.getElementById("signupUserName").value;
+        const email = document.getElementById("signupEmail").value;
+        const password = document.getElementById("signupPassword").value;
+        const cPassword = document.getElementById(
+          "signupConfirmPassword"
+        ).value;
+        const gender = document.getElementById("gender").value;
+
+        // Validate password and confirm password
+        if (password !== cPassword) {
+          alert("كلمات المرور غير متطابقة");
+          return;
+        }
+
+        // Validate password format
+        const passwordRegex =
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+        if (!passwordRegex.test(password)) {
+          alert(
+            "كلمة المرور يجب أن تحتوي على على الأقل 8 أحرف تتكون من حرف كبير وحرف صغير ورقم."
+          );
+          return;
+        }
+
+        try {
+          const response = await axios.post(
+            "https://saraha-gilt.vercel.app/auth/signup",
+            {
+              userName: userName,
+              email: email,
+              password: password,
+              cPassword: cPassword,
+              gender: gender,
+            }
+          );
+
+          // Handle response, such as displaying a success message or redirecting to another page
+          console.log("Sign up successful:", response.data);
+          alert("Sign up successful : " + response.data);
+          window.location.href = "./signin.html";
+        } catch (error) {
+          // Handle error, such as displaying an error message to the user
+          console.error("Sign up failed:", error.response.data);
+          alert("Server  Error :" + error.response.data);
+        }
+      }
+
+      // Add event listener to the form
+      document.getElementById("signupForm").addEventListener("submit", signUp);
+    </script>
+  </body>
+</html>
