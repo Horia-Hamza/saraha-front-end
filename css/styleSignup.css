@@ -122,6 +122,9 @@ nav > a img {
   justify-content: center;
   gap: 100px;
 }
+.w-100{
+  width: 100% !important;
+}
 @media screen and (max-width: 992px) {
   .container .image {
     display: none;
@@ -190,9 +193,10 @@ nav > a img {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+  width: 100%;
 }
 .form-container form input:focus {
-  background-color: #4a5568;
+  background-color: #4a556830;
   outline: none;
   box-shadow: 0 0 0 2px #3b82f6;
 }

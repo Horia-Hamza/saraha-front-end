@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="css/profile.css" />
   </head>
   <body>
@@ -23,7 +25,7 @@
       <div class="container">
         <div class="user-data">
           <img src="images/profile/44507496274845.jpg" alt="profileImage" />
-          <h1>Fares Harb</h1>
+          <h1 id="name"></h1>
           <p>تغيير المعلومات الشخصية</p>
         </div>
         <ul class="category">
@@ -33,20 +35,20 @@
         </ul>
         <div class="form">
           <h3>اعداد ملفى</h3>
-          <form action="">
+          <form  id="updateForm" action="">
             <input
               type="text"
               placeholder="ادخل اسمك او لقبك"
               name="userName"
               id="userName"
-              value="Fares Harb"
+              value=""
             />
             <input
               type="email"
               placeholder="ادخل بريدك الالكترونى"
               name="email"
               id="email"
-              value="faresharb580@gmail.com"
+              value=""
             />
             <select class="" id="gender">
               <option value="Male">Male</option>
@@ -57,9 +59,13 @@
               placeholder="نبذه عنى"
               name="details"
               id="details"
-              value="انا لاعب كره قدم "
+              value=""
             ></textarea>
             <span>القليل من المعلومات عنك</span>
+
+            <div id="alert" class="alert alert-danger d-none"></div>
+            <div id="succussMessage" class="alert alert-success d-none"></div>
+
             <button type="submit">حفظ التغيرات</button>
           </form>
           <p>تاريخ الانضمام : 05/04/2024</p>
@@ -103,5 +109,8 @@
         </div>
       </div>
     </footer>
+    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"/> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js//profile.js"></script>
   </body>
 </html>

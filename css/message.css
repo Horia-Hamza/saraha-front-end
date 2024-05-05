@@ -1,0 +1,296 @@
+/* Global Colors */
+:root {
+  --main-color: #f0776c;
+  --secondary-color: #6a6b6d;
+  --primary-color: #e8e8e8;
+  --header-background-color: #2d2f31;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  background-color: #3c5c96;
+}
+
+/* Header Style */
+
+.message-header {
+  background-color: var(--header-background-color);
+  text-align: center;
+  padding: 40px 0px;
+  color: white;
+}
+
+.message-header figure img {
+  border-radius: 100%;
+  width: 120px;
+  border: 3px var(--secondary-color) solid;
+}
+
+.message-header figcaption h2 {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  margin: 5px auto;
+  padding: 5px;
+  border-radius: 5px;
+  gap: 10px;
+  border: 1px solid;
+  font-size: 16px;
+  font-weight: 300;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.copy-link__btn {
+  width: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width 0.7s;
+  overflow: hidden;
+  border: none;
+  color: white;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  cursor: pointer;
+}
+
+.message-header figcaption h2:hover .copy-link__btn {
+  width: 100%;
+  opacity: 1;
+}
+
+.message-header figcaption div i {
+  font-size: 16px;
+}
+
+.message-header figcaption p {
+  font-weight: 300;
+  font-size: 13px;
+}
+
+/* Body Style */
+
+.message-body {
+  text-align: center;
+  padding: 20px 0;
+  background-color: white;
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 12px 10px;
+}
+
+/* Body Style > Tabs */
+
+.message-body .tabs {
+  list-style: none;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.message-body .tabs .tab {
+  color: #545658;
+  font-size: 14px;
+  padding: 10px 5px;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.message-body .tabs .tab.active {
+  background-color: var(--header-background-color);
+  color: white;
+  border-radius: 10px;
+  transition: all 1s;
+}
+
+/* Body Style > Message */
+.message-container {
+  margin: 0 auto;
+}
+
+.no-message__card {
+  border-top: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  padding: 14px;
+  width: 80%;
+  margin: 32px auto;
+}
+
+.no-message__card i {
+  font-size: 82px;
+  color: var(--main-color);
+}
+
+.no-message__card h3 {
+  margin-top: 5px;
+}
+
+.no-message__card p {
+  font-size: 14px;
+}
+
+.message-container__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-container__header div {
+  font-size: 12px;
+}
+
+.message-container__header div .dropdown .dropdown-icon {
+  border-radius: 5px;
+  padding: 3px 8px;
+  position: relative;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.message-container__header div .dropdown .dropdown-list {
+  list-style: none;
+  text-align: right;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: white;
+  margin-top: 5px;
+  position: absolute;
+  z-index: 1;
+}
+
+.message-container__header div .dropdown .dropdown-list li {
+  margin: 10px 0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  padding: 5px 20px;
+}
+
+.message-container__header div .dropdown .dropdown-list li:hover {
+  background-color: var(--primary-color);
+}
+
+.message-container__header div .dropdown .dropdown-list li:nth-child(2) {
+  color: red;
+}
+
+.message-card {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.message-card__body {
+  width: 85%;
+  margin: 0 auto;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.triangle {
+  position: absolute;
+  color: var(--primary-color);
+  right: -10px;
+  top: 20px;
+}
+
+.message-card__body-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+}
+
+.message-card__body-header i {
+  color: var(--secondary-color);
+}
+
+.message-card__body-header h4 {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.message-card__body-header h4 span {
+  color: var(--secondary-color);
+}
+
+.message-card__body p {
+  width: 80%;
+  padding: 10px 0;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+  font-size: 14px;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: start;
+  margin: 10px 20px;
+  gap: 5px;
+}
+
+.btn {
+  background-color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  cursor: pointer;
+  color: white;
+}
+
+.btn.danger {
+  background-color: red;
+  transition: background-color 0.3s;
+}
+
+.btn.danger:hover {
+  background-color: rgb(241, 77, 77);
+}
+
+.btn.info {
+  background-color: cornflowerblue;
+  transition: background-color 0.3s;
+}
+
+.btn.info:hover {
+  background-color: rgb(134, 168, 231);
+}
+
+.message-card__side {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-card__side img {
+  width: 50%;
+  border-radius: 100%;
+}

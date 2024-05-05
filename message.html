@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="./css/message.css" rel="stylesheet" />
+    <title>رسائلي | صارحني</title>
+  </head>
+  <body>
+    <header class="message-header">
+      <figure>
+        <img src="./images/messages/logo.jpg" alt="sarhne logo" />
+        <figcaption>
+          <h1>Abdelrhman Ehab</h1>
+          <h2>
+            <span class="copy-link__text">
+              http://77938014375821.sarhne.com
+            </span>
+            <button class="copy-link__btn">نسخ الرابط</button>
+          </h2>
+          <p>شارك الرابط وابدأ بتلقي الرسائل والصراحات</p>
+        </figcaption>
+      </figure>
+    </header>
+    <main class="message-body">
+      <ul class="tabs">
+        <li class="tab end active">
+          <i class="fa-solid fa-paper-plane"></i>
+          مرسلة
+        </li>
+        <li class="tab">
+          المفضلة
+          <i class="fa-solid fa-star"></i>
+        </li>
+        <li class="tab start">
+          رسائل واردة
+          <i class="fa-solid fa-message"></i>
+        </li>
+      </ul>
+
+      <div class="message-container">
+        <!-- if there is no messages -->
+        <section class="no-message__card">
+          <i class="fa-solid fa-star"></i>
+          <h3>لا توجد لديك رسائل في المفضلة</h3>
+          <p>
+            لوضع رسائل في المفضلة انقر على زر النجمة الموجد جانب الرسائل التى
+            تصلك
+          </p>
+        </section>
+        <!-- if there is messages -->
+        <div class="message-container__header">
+          <div>
+            <div class="dropdown">
+              <div class="dropdown-icon">
+                <i class="fa-solid fa-list"></i>
+                خيارات
+              </div>
+              <ul class="dropdown-list">
+                <li>
+                  ترتيب الرسائل
+                  <i class="fa-solid fa-sort"></i>
+                </li>
+                <li>
+                  حذف كل الرسائل
+                  <i class="fa-solid fa-trash"></i>
+                </li>
+                <li>
+                  الغاء
+                  <i class="fa-solid fa-close"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <span>الرسائل : 2</span>
+        </div>
+        <section class="message-card">
+          <div class="message-card__body">
+            <i class="fa-solid fa-play triangle"></i>
+            <div class="message-card__body-header">
+              <i class="fa-solid fa-star"></i>
+              <h4>مجهول : <span>منذ 23 ثانية</span></h4>
+            </div>
+            <p>Lorem ipsum dolor sit.</p>
+            <div class="btns-container">
+              <button class="btn info">
+                <i class="fa-solid fa-trash"></i>
+                أظهار
+              </button>
+              <button class="btn danger">
+                <i class="fa-solid fa-trash"></i>
+                حذف
+              </button>
+            </div>
+          </div>
+          <div class="message-card__side">
+            <img src="./images/messages/logo.jpg" alt="avatar" />
+            <span>
+              0
+              <i class="fa-solid fa-thumbs-up"></i>
+            </span>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="js//messages.js"></script>
+  </body>
+</html>
