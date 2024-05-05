@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/messages.css" />
   </head>
   <body>
     <header id="header">
@@ -24,45 +28,43 @@
         <div class="user-data">
           <img src="images/profile/44507496274845.jpg" alt="profileImage" />
           <h1>Fares Harb</h1>
-          <p>تغيير المعلومات الشخصية</p>
+          <h2>
+            <span class="copy-link__text">
+              http://44507496274845.sarhne.com
+            </span>
+            <button class="copy-link__btn">نسخ الرابط</button>
+          </h2>
+          <small>شارك الرابط وابدأ بتلقي الرسائل والصراحات</small>
         </div>
         <ul class="category">
-          <li class="active"><a href="#">الملف الشخصي</a></li>
-          <li><a href="#">الحساب</a></li>
-          <li><a href="#">الصورة</a></li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-message"></i>
+              الرسائل الوارده</a
+            >
+          </li>
+          <li class="active">
+            <a href="#">
+              <i class="fa-solid fa-star"></i>
+              الرسائل المفضله
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-paper-plane"></i>
+              الرسائل المرسله</a
+            >
+          </li>
         </ul>
-        <div class="form">
-          <h3>اعداد ملفى</h3>
-          <form action="">
-            <input
-              type="text"
-              placeholder="ادخل اسمك او لقبك"
-              name="userName"
-              id="userName"
-              value="Fares Harb"
-            />
-            <input
-              type="email"
-              placeholder="ادخل بريدك الالكترونى"
-              name="email"
-              id="email"
-              value="faresharb580@gmail.com"
-            />
-            <select class="" id="gender">
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-            <textarea
-              type="text"
-              placeholder="نبذه عنى"
-              name="details"
-              id="details"
-              value="انا لاعب كره قدم "
-            ></textarea>
-            <span>القليل من المعلومات عنك</span>
-            <button type="submit">حفظ التغيرات</button>
-          </form>
-          <p>تاريخ الانضمام : 05/04/2024</p>
+        <div class="message-container">
+          <section class="no-message__card">
+            <i class="fa-solid fa-star"></i>
+            <h3>لا توجد لديك رسائل في المفضلة</h3>
+            <p>
+              لوضع رسائل في المفضلة انقر على زر النجمة الموجد جانب الرسائل التى
+              تصلك
+            </p>
+          </section>
         </div>
       </div>
     </div>
@@ -103,5 +105,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="js/messages.js"></script>
   </body>
 </html>
