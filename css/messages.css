@@ -202,6 +202,26 @@ body {
   cursor: pointer;
 }
 
+.copied {
+  width: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #6cf075;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width 0.7s;
+  overflow: hidden;
+  border: none;
+  color: white;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  cursor: pointer;
+}
+
+
 .profile .container h2:hover .copy-link__btn {
   width: 100%;
   opacity: 1;

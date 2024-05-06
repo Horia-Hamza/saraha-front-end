@@ -3,7 +3,7 @@ async function getUserData(id){
      const {data} = await axios.get(`https://saraha-gilt.vercel.app/user/${id}`);
      console.log(data);
      localStorage.setItem('userData',JSON.stringify(data.user));
-     window.location.href ='./message.html';
+     window.location.href ='./messages.html';
    } catch (error) {
      console.log(error);
    }
@@ -58,6 +58,8 @@ async function getUserData(id){
              
            }else if(error.response.data.message == "Validation error"){
              alert('wrong email');
+           }else if(error.response.data.message == "Confirm your email first"){
+            alert('Confirm your email first');
            }
        }
    }

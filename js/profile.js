@@ -46,7 +46,7 @@ async function updateUser(event){
    } catch (error) {
       console.log(error);
       if (error.response.data.message == 'Expire token') {
-         window.location.href ='./signup.html';
+        // window.location.href ='./signup.html';
       }
       alertMessage.innerHTML = error.response.data.message
       alertMessage.classList.remove('d-none');
