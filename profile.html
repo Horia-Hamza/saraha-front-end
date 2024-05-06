@@ -4,36 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
-
+    <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="css/profile.css" />
+    <script src="main.js"></script>
+
   </head>
   <body>
-    <header id="header">
-      <nav class="container">
-        <a href="#" class="logo"
-          ><img src="images/main/sarhne-nav.png" alt="logo"
-        /></a>
-        <ul>
-          <li><a href="./messages.html">الرسائل</a></li>
-          <li><a href="./profile.html"> حسابى</a></li>
-          <li><a href="./signin.html">تسجيل خروج</a></li>
-        </ul>
-      </nav>
-    </header>
     <div class="profile">
       <div class="container">
         <div class="user-data">
-          <img src="images/profile/44507496274845.jpg" alt="profileImage" />
+          <img class="" src="images/main/avatar.png" alt="profileImage" />
           <h1 id="name"></h1>
           <p>تغيير المعلومات الشخصية</p>
         </div>
-        <ul class="category">
-          <li class="active"><a href="#">الملف الشخصي</a></li>
-          <li><a href="#">الحساب</a></li>
-          <li><a href="#">الصورة</a></li>
+
+        <ul id="menu" class="category">
+          <li id="profileLink" class="active"><a >الملف الشخصي</a></li>
+          <li id="accountLink"><a >الحساب</a></li>
+          <li id="changeImageLink"><a >الصورة</a></li>
         </ul>
-        <div class="form">
+
+        <div id="profile" class="form">
           <h3>اعداد ملفى</h3>
           <form  id="updateForm" action="">
             <input
@@ -67,6 +58,52 @@
             <div id="succussMessage" class="alert alert-success d-none"></div>
 
             <button type="submit">حفظ التغيرات</button>
+          </form>
+          <p>تاريخ الانضمام : 05/04/2024</p>
+        </div>
+        <div id="account" class="form"  style="display: none;">
+          <h3>تغيير الرقم السري</h3>
+          <form  id="updatePassword" action="">
+            <input
+              type="password"
+              placeholder="ادخل كلمه المرور"
+              name="number"
+              id="number"
+              value=""
+            />
+            <input
+              type="password"
+              placeholder="  ادخل كلمه المرور الجديده"
+              name="number"
+              id="number"
+              value=""
+            />
+            <input
+            type="number"
+            placeholder="تأكيد كلمه المرور"
+            name="number"
+            id="number"
+            value=""
+          />
+            <div id="alert" class="alert alert-danger d-none"></div>
+            <div id="succussMessage" class="alert alert-success d-none"></div>
+
+            <button type="submit">حفظ التغيرات</button>
+            <p>هل تريد حذف الحساب؟</p>
+            <button class="deleteBtn" type="submit">حذف الحساب</button>
+
+          </form>
+        </div>
+        <div id="changeImage" class="form" style="display: none;">
+          <h3>تغيير صوره الملف الشخصي</h3>
+          <form  id="uploadImage" action="">
+            <input type="file" id="fileInput">
+            
+
+            <div id="alert" class="alert alert-danger d-none"></div>
+            <div id="succussMessage" class="alert alert-success d-none"></div>
+
+            <button onclick="uploadImage()">رفع صوره</button>
           </form>
           <p>تاريخ الانضمام : 05/04/2024</p>
         </div>
