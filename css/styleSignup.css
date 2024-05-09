@@ -125,8 +125,8 @@ nav > a img {
 .w-100{
   width: 100% !important;
 }
-@media screen and (max-width: 992px) {
-  .container .image {
+@media screen and (max-width: 999px) {
+  .page-container .image {
     display: none;
   }
 }

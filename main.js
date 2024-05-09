@@ -19,17 +19,29 @@ async function initializeApp() {
   const myMessages = document.getElementById('myMessages');
   const myProfile = document.getElementById('myProfile');
   const signOut = document.getElementById('signOut');
+  const signOutLogo = document.getElementById('signOutLogo');
+  const signInLogo = document.getElementById('signInLogo');
+  const index = document.getElementById('index');
 
   if (JSON.parse(localStorage.getItem("userData"))) {
     signInBtn.classList.add('d-none'); // Add class to hide
     signUpBtn.classList.add('d-none'); // Ensure it's visible
+    signOutLogo.classList.add('d-none'); // Ensure it's visible
+    signInLogo.classList.remove('d-none');
+    index.classList.add('d-none');
+    index.classList.remove('d-block');
   } else {
     console.log(signInBtn);
     signInBtn.classList.remove('d-none'); // Ensure it's visible
     signUpBtn.classList.remove('d-none'); // Hide it
+    signOutLogo.classList.remove('d-none');
+    signInLogo.classList.add('d-none');// Ensure it's visible
     myMessages.classList.add('d-none'); // Hide it
     myProfile.classList.add('d-none'); // Hide it
     signOut.classList.add('d-none'); // Hide it
+    index.classList.remove('d-none');
+    index.classList.add('d-block');
+
   }
 }
 
@@ -43,7 +55,10 @@ if (window.location.pathname=='/signin.html') {
 }
 }
 else{
-  if (window.location.pathname!='/signin.html') {
+  if (window.location.pathname !='/signin.html'
+  &&window.location.pathname != '/index.html'
+  &&window.location.pathname != '/signup.html'   
+  ) {
     window.location.href ='./signin.html';
     
   }

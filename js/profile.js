@@ -1,7 +1,6 @@
 
 let userData = JSON.parse(localStorage.getItem("userData"))
 const token = JSON.parse(localStorage.getItem("token"))
-console.log(userData);
 getUserData(userData._id)
 const oldEmail = userData.email
 const userName = document.getElementById('name')
