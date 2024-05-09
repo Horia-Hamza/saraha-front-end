@@ -1,12 +1,30 @@
-<header id="header">
-   <nav class="container">
-     <a href="#" class="logo"
-       ><img src="images/main/sarhne-nav.png" alt="logo"
-     /></a>
-     <ul>
-       <li><a href="./messages.html">الرسائل</a></li>
-       <li><a href="./profile.html"> حسابى</a></li>
-       <li><a href="./signin.html">تسجيل خروج</a></li>
-     </ul>
-   </nav>
- </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+      <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+        <link rel="stylesheet" href="css/messages.css"/>
+</head>
+<body>
+  <header id="header">
+     <nav class="container">
+       <a href="./index.html" class="logo"
+         ><img src="images/main/sarhne-nav.png" alt="logo"
+       /></a>
+       <ul>
+         <li id="myMessages"  class=""><a href="./messages.html">الرسائل</a></li>
+         <li id="myProfile"  class=""><a href="./profile.html"> حسابى</a></li>
+         <li id="signOut"  class=""  onclick="logout()" class="text-white logout" type="submit" id="logOut"><a class="logout">تسجيل خروج</a></li>
+         <li id="signUpBtn" class=""  ><a href="./signup.html">تسجيل حساب جديد</a></li>
+         <li id="signInBtn" class=""  ><a href="./signin.html">دخول للحساب</a></li>
+       </ul>
+     </nav>
+   </header>
+   <script src="/main.js"></script>
+</body>
+</html>

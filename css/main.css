@@ -378,4 +378,8 @@ footer .links img {
     transform: translateY(-15px);
   }
 }
+.logout:hover{
+  color:#f1786c;
+
+}
 /* end animation */

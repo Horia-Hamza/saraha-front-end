@@ -4,16 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/profile.css" />
-    <script src="main.js"></script>
+    <script src="/main.js"></script>
 
   </head>
   <body>
     <div class="profile">
       <div class="container">
-        <div class="user-data">
-          <img class="" src="images/main/avatar.png" alt="profileImage" />
+        <div id="userImage" class="user-data">
           <h1 id="name"></h1>
           <p>تغيير المعلومات الشخصية</p>
         </div>
@@ -41,72 +40,64 @@
               id="email"
               value=""
             />
-            <select class="" id="gender">
+            <select id="gender">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
-            <textarea
-              type="text"
-              placeholder="نبذه عنى"
-              name="details"
-              id="details"
-              value=""
-            ></textarea>
-            <span>القليل من المعلومات عنك</span>
 
-            <div id="alert" class="alert alert-danger d-none"></div>
-            <div id="succussMessage" class="alert alert-success d-none"></div>
+            <!-- <div id="alert" class="alert alert-danger d-none"></div>
+            <div id="succussMessage" class="alert alert-success d-none"></div> -->
 
             <button type="submit">حفظ التغيرات</button>
           </form>
-          <p>تاريخ الانضمام : 05/04/2024</p>
+          <!-- <p>تاريخ الانضمام : 05/04/2024</p> -->
         </div>
         <div id="account" class="form"  style="display: none;">
           <h3>تغيير الرقم السري</h3>
           <form  id="updatePassword" action="">
+            <!-- <label for="password">old</label> -->
             <input
               type="password"
               placeholder="ادخل كلمه المرور"
               name="number"
-              id="number"
+              id="oldPassword"
               value=""
             />
             <input
               type="password"
-              placeholder="  ادخل كلمه المرور الجديده"
+              placeholder="ادخل كلمه المرور الجديده"
               name="number"
-              id="number"
+              id="password"
               value=""
             />
             <input
-            type="number"
+            type="password"
             placeholder="تأكيد كلمه المرور"
-            name="number"
-            id="number"
+            name="pass"
+            id="cPassword"
             value=""
           />
-            <div id="alert" class="alert alert-danger d-none"></div>
-            <div id="succussMessage" class="alert alert-success d-none"></div>
+            <!-- <div id="alert" class="alert alert-danger d-none"></div>
+            <div id="succussMessage" class="alert alert-success d-none"></div> -->
 
             <button type="submit">حفظ التغيرات</button>
-            <p>هل تريد حذف الحساب؟</p>
-            <button class="deleteBtn" type="submit">حذف الحساب</button>
-
+          </form>
+          <form  id="deleteBtn">
+          
           </form>
         </div>
         <div id="changeImage" class="form" style="display: none;">
           <h3>تغيير صوره الملف الشخصي</h3>
-          <form  id="uploadImage" action="">
+          <form  id="uploadImage">
             <input type="file" id="fileInput">
-            
+            <button type="submit">رفع صوره</button>
+            <div id="deleteImage">
 
-            <div id="alert" class="alert alert-danger d-none"></div>
-            <div id="succussMessage" class="alert alert-success d-none"></div>
-
-            <button onclick="uploadImage()">رفع صوره</button>
+            </div>
           </form>
-          <p>تاريخ الانضمام : 05/04/2024</p>
         </div>
+        <div id="alert" class="alert alert-danger d-none"></div>
+        <div id="succussMessage" class="alert alert-success d-none"></div>
       </div>
     </div>
     <footer>
@@ -146,7 +137,6 @@
         </div>
       </div>
     </footer>
-    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"/> -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js//profile.js"></script>
   </body>

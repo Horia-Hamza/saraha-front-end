@@ -1,5 +1,5 @@
-      // Function to handle sign-up
-      // Function to handle sign-up
+
+// Function to handle sign-up
       async function signUp(event) {
          event.preventDefault(); // Prevent default form submission
          //

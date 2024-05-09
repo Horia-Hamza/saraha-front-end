@@ -8,54 +8,76 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="css/messages.css" />
     <script src="main.js"></script>
   </head>
   <body>
     <div class="profile">
       <div class="container">
-        <div class="user-data">
-          <img src="images/profile/44507496274845.jpg" alt="profileImage" />
+        <div  class="user-data">
+          <div id="userImage"></div>
           <h1 id="name"></h1>
           <h2>
             <span id="link" class="copy-link__text"></span>
-            <button id="copy-link__btn" class="copy-link__btn">نسخ الرابط</button>
+            <button id="copy-link__btn" class="copy-link__btn">
+              نسخ الرابط
+            </button>
           </h2>
           <small>شارك الرابط وابدأ بتلقي الرسائل والصراحات</small>
         </div>
-        <ul class="category">
-          <li>
-            <a href="#">
+        <ul  class="category ps-0 ">
+          <li id="fa-message" class="active">
+            <a >
               <i class="fa-solid fa-message"></i>
               الرسائل الوارده</a
             >
           </li>
-          <li class="active">
-            <a href="#">
+          <li id="fa-star" >
+            <a >
               <i class="fa-solid fa-star"></i>
               الرسائل المفضله
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="fa-solid fa-paper-plane"></i>
-              الرسائل المرسله</a
-            >
-          </li>
         </ul>
         <div class="message-container">
-          <section class="no-message__card">
-            <i class="fa-solid fa-star"></i>
-            <h3>لا توجد لديك رسائل في المفضلة</h3>
-            <p>
-              لوضع رسائل في المفضلة انقر على زر النجمة الموجد جانب الرسائل التى
-              تصلك
-            </p>
-          </section>
+             <div id="favMessages" class="d-none">
+  <section id="noFavoriteMessages" class="no-message__card d-none">
+    <i class="fa-solid fa-star"></i>
+    <h3>لا توجد لديك رسائل في المفضلة</h3>
+    <p>
+      لوضع رسائل في المفضلة انقر على زر النجمة الموجد جانب الرسائل التى
+      تصلك
+    </p>
+  </section>
+  <div id="favMessages-container" class="message__card form d-none">
+    <div class="text-end  fs-5" id="favCounter"> 
+       </div>
+
+
+
+    
+  </div>
+              </div>
+          <div id="receivedMessages" class="">
+            <section id="noMessages" class="no-message__card d-none">
+              <i class="fa-solid fa-message"></i>
+              <h3>لاتوجد لديك رسائل ومصارحات حالياً</h3>
+              <p>
+                شارك الرابط الخاص بك على صفحات التواصل الأجتماعي مثل الفيسبوك
+                وتويتر ودع الناس يكتبون لك دون أن تعرف المصدر
+              </p>
+            </section>
+            <div id="messages-container" class="message__card form d-none ">
+              <div class="text-end  fs-5" id="counter">
+              </div>
+          </div>
         </div>
-        
       </div>
+    </div>
     </div>
     <footer>
       <div class="container">

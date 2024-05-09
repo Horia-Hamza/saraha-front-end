@@ -4,26 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/send-message.css" />
     <script src="main.js"></script>
   </head>
   <body>
     <div class="profile">
       <div class="container">
-        <h3>أكتب رسالة إلى <span>Fares Harb</span> دون ان يعرفك</h3>
+        <h3>أكتب رسالة إلى <span id="sender"></span> دون ان يعرفك</h3>
         <div class="form-container">
-          <img src="images/profile/44507496274845.jpg" alt="profileImage" />
-            <p> اخر ظهور منذ : 11 ساعه</p>
-          <form action="">
+          <img class="w-25" id="senderImage" src="images/main/avatar.png" alt="profileImage" />
+            <!-- <p> اخر ظهور منذ : 11 ساعه</p> -->
+          <form id="sendMessage">
+            <p>              هناك شيء تريد قوله لـ <span id="senderName"></span> ، بدون ان يعرفك ؟ أكتب هنا"
+            </p>
             <textarea
               type="text"
-              placeholder="هناك شيء تريد قوله لـ Fares Harb ، بدون ان يعرفك ؟ أكتب هنا"
               name="message"
             maxlength="500"
             rows="5"
               id="message"
             ></textarea>
-            <span>لا يمكن ارسال اكثر من 500 حرف</span>
+            <span>لا يمكن ارسال اكثر من 200 حرف</span>
+            <div  id="alert">
+
+            </div>
+            <div id="succussMessage">
+             
+
+            </div>
             <button type="submit">ارسال الان
                 <i class="fa-solid fa-plus"></i>
             </button>
@@ -68,5 +77,8 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js//sendMessage.js"></script>
+
   </body>
 </html>
