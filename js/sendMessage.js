@@ -21,8 +21,11 @@ async function getUserData(userId){
      if (data) {
       senderName.innerHTML = data.user.userName
       sender.innerHTML = data.user.userName
-      //senderImage.setAttribute('src',data.image.secure_url)
-      console.log(data.user.userName);
+      if (data.image.image == null) {
+        userImage.innerHTML = `<img class="" src="images/main/avatar.png" alt="profileImage" />`
+     }else{
+        userImage.innerHTML = `<img class="" src="${data.user.image.secure_url}" alt="profileImage" />`
+     }      console.log(data.user.userName);
      }
    } catch (error) {
      console.log(error);
