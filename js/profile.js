@@ -23,7 +23,7 @@ if (userData.image == null) {
    userImage.innerHTML = `<img class="" src="images/main/avatar.png" alt="profileImage" />`
 }else{
    deleteImage.innerHTML = ` <p>هل تريد مسح صورتك الشخصيه</p>
-   <button onClick="deleteProfileImage()" type="submit">مسح الصوره الشخصيه</button>
+   <button onClick="deleteProfileImage()" type="button">مسح الصوره الشخصيه</button>
    `
    console.log(userData.image.secure_url);
    userImage.innerHTML = `<img class="" src="${userData.image.secure_url}" alt="profileImage" />`
@@ -93,20 +93,27 @@ async function updateUser(event){
       )
       console.log(data);
       if (data.message == 'Done') {
-         localStorage.setItem('userData',JSON.stringify(data.user));
-
-      }
-      succussMessage.innerHTML = data.message
-      succussMessage.classList.remove('d-none');
-      succussMessage.classList.add('d-block');
-      alertMessage.classList.add('d-none');
-      succussMessage.innerHTML = data.message
+         if ( oldEmail != email.value ) {
+            localStorage.removeItem('userData');
+           window.location.href = './signin.html'
+          }else{
+             localStorage.setItem('userData',JSON.stringify(data.user));
+              succussMessage.innerHTML = data.message
+              succussMessage.classList.remove('d-none');
+              succussMessage.classList.add('d-block');
+              alertMessage.classList.add('d-none');
+              succussMessage.innerHTML = data.message
+          }
+         }
 
    } catch (error) {
-      // console.log(error);
-      // if (error.response.data.message == 'Expire token') {
-      //   // window.location.href ='./signup.html';
-      // }
+      console.log(error);
+      if (error.response.data.message == 'Expire token') {
+         alertMessage.innerHTML = 'please sign in first'
+         alertMessage.classList.remove('d-none');
+      alertMessage.classList.add('d-block');
+      succussMessage.classList.add('d-none');     
+    }
       if (error.response.data.message == "Validation error") {
          alertMessage.innerHTML = 'required fields'
          alertMessage.classList.remove('d-none');
@@ -204,7 +211,8 @@ async function uploadImage(event) {
      );
      console.log(data);
      if (data.message == "Done") {
-      getUserData(userData._id)
+    await getUserData(userData._id)
+
      }
    } catch (error) {
      console.log(error);
@@ -248,7 +256,16 @@ async function getUserData(id){
       deleteBtn.innerHTML = `<p>هل تريد ايقاف الحساب؟</p>
       <button class="deleteBtn " type="submit">ايقاف الحساب</button>`
      }
-     userImage.innerHTML = `<img class="" src="${data.user.image.secure_url}" alt="profileImage" />`
+     if (data.user.image) {  
+        deleteImage.innerHTML = ` <p>هل تريد مسح صورتك الشخصيه</p>
+        <button onClick="deleteProfileImage()" type="button">مسح الصوره الشخصيه</button> `
+
+        userImage.innerHTML = `<img class="" src="${data.user.image.secure_url}" alt="profileImage" />`;
+     }
+     else{
+      userImage.innerHTML = `<img class="" src="images/main/avatar.png" alt="profileImage" />`;
+      deleteImage.innerHTML = '';
+     }
      localStorage.setItem('userData',JSON.stringify(data.user));
    } catch (error) {
      console.log(error);
@@ -257,6 +274,7 @@ async function getUserData(id){
 
       async function deleteProfileImage(){
             try {
+               console.log("del");
                const {data} = await axios.patch(`https://saraha-gilt.vercel.app/user/deleteProfilePic`,
                {},
                {
@@ -267,7 +285,19 @@ async function getUserData(id){
             );
             console.log(data);
             if (data.message == "Done") {
-               getUserData(userData._id)
+               
+              await getUserData(userData._id)
+              if (data.image == null) {
+               userImage.innerHTML = `<img class="" src="images/main/avatar.png" alt="profileImage" />`
+               deleteImage.innerHTML =''
+            }else{
+               deleteImage.innerHTML = ` <p>هل تريد مسح صورتك الشخصيه</p>
+               <button onClick="deleteProfileImage()" type="button">مسح الصوره الشخصيه</button>
+               `;
+               console.log(userData.image.secure_url);
+               userImage.innerHTML = `<img class="" src="${data.image.secure_url}" alt="profileImage" />`;
+            }
+            
             }
              } catch (error) {
                console.log(error);

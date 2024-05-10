@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
   <head>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/styleSignin.css" />
-    <!-- <script src="main.js"></script> -->
   </head>
   <body>
 
@@ -32,6 +32,11 @@
               ليس لدى حساب ؟
               <a class="" href="./signup.html"> تسجيل </a>
             </p>
+
+            <div id="alert" class="alert alert-danger d-none"></div>
+            <div id="succussMessage" class="alert alert-success d-none"></div>
+
+
             <button id="submitBtn" class="" type="submit">تسجيل دخول</button>
           </form>
         </div>

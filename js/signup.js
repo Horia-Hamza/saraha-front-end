@@ -1,4 +1,5 @@
-
+const succussMessage = document.getElementById('succussMessage')
+const alertMessage = document.getElementById('alert')
 // Function to handle sign-up
       async function signUp(event) {
          event.preventDefault(); // Prevent default form submission
@@ -13,7 +14,9 @@
  
          // Validate password and confirm password
          if (password !== cPassword) {
-           alert("كلمات المرور غير متطابقة");
+          alertMessage.classList.add('d-block');
+          alertMessage.classList.remove('d-none');
+          alertMessage.innerHTML = "كلمات المرور غير متطابقة"
            return;
          }
  
@@ -21,9 +24,9 @@
          const passwordRegex =
            /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
          if (!passwordRegex.test(password)) {
-           alert(
-             "كلمة المرور يجب أن تحتوي على على الأقل 8 أحرف تتكون من حرف كبير وحرف صغير ورقم."
-           );
+          alertMessage.classList.add('d-block');
+          alertMessage.classList.remove('d-none');
+          alertMessage.innerHTML = 'كلمة المرور يجب أن تحتوي على على الأقل 8 أحرف تتكون من حرف كبير وحرف صغير ورقم.'
            return;
          }
  
@@ -41,12 +44,13 @@
  
            // Handle response, such as displaying a success message or redirecting to another page
            console.log("Sign up successful:", response.data);
-           alert("Sign up successful");
            window.location.href = "./signin.html";
          } catch (error) {
            // Handle error, such as displaying an error message to the user
            console.error("Sign up failed:", error.response.data.message);
-           alert(error.response.data.message);
+           alertMessage.classList.add('d-block');
+           alertMessage.classList.remove('d-none');
+           alertMessage.innerHTML = error.response.data.message
          }
        }
  

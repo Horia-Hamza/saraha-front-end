@@ -53,10 +53,16 @@ async function getUserData(userId){
                  console.log(data);
                  succussMessage.innerHTML =' <div  class="alert alert-success">تم الارسال بنجاح</div>' ;
                  alertMessage.innerHTML = ''
+                 message.value = ''
 
                }
             } catch (error) {
               console.log(error);
+              if (error.response.data.message == "In-valid receiver") {
+                alertMessage.innerHTML ='<div class="alert alert-danger">هذا المستخدم غير متاح او هذا الحساب متوقف</div>'
+
+              }
+
             }
       }
 

@@ -23,40 +23,51 @@ if (userData.image == null) {
   userImage.innerHTML = `<img class="" src="${userData.image.secure_url}" alt="profileImage" />`
 }
 let favoriteMessages = []
-userName.innerHTML  = userData.userName
-
-favoriteMessages = userData.wishList
-console.log('favoriteMessages',favoriteMessages);
-if (favoriteMessages.length>0) {
-  console.log('dfdfddff');
-  noFavoriteMessages.classList.add('d-none')
-  noFavoriteMessages.classList.remove('d-block')
-  noMessages.classList.add('d-none')
-  noMessages.classList.remove('d-block')
-  favMessagesContainer.classList.add('d-block')
-  favMessagesContainer.classList.remove('d-none')
-  favCounter.innerHTML = `<p>الرسائل : ${favoriteMessages.length}</p>`
-  for (let i = 0 ; i < favoriteMessages.length; i++) {
-    favMessagesContainer.innerHTML += `
-    <div class="message__card_container">
-    <div class="image w-50">
-      <img src="images/main/s-48.png" alt="" />
-    </div>
-    <div class="message overflow-hidden overflow-auto">
-      <div class="logo-name">
+async function getFavoriteMessages() {
+  
+  userName.innerHTML  = userData.userName
+  const userInfo= JSON.parse(localStorage.getItem("userData"))
+  favoriteMessages = userInfo.wishList
+  console.log(favoriteMessages)
+  console.log('favoriteMessages',favoriteMessages);
+  if (favoriteMessages.length>0) {
+    favMessagesContainer.innerHTML =""
+    console.log('dfdfddff');
+    noFavoriteMessages.classList.add('d-none')
+    noFavoriteMessages.classList.remove('d-block')
+    noMessages.classList.add('d-none')
+    noMessages.classList.remove('d-block')
+    favMessagesContainer.classList.add('d-block')
+    favMessagesContainer.classList.remove('d-none')
+    favMessagesContainer.innerHTML = `<p>الرسائل : ${favoriteMessages?.length}</p>`
+    for (let i = 0 ; i < favoriteMessages.length; i++) {
+      favMessagesContainer.innerHTML += `
+      <div class="message__card_container">
+      <div class="image w-50">
+      <img src="./images/main/avatar.png" alt="" />
       </div>
-      <hr />
-      <p class="text-message ">${favoriteMessages[i].text}</p>
-      <hr />
+      <div class="message overflow-hidden overflow-auto">
+        <div class="logo-name">
+        </div>
+        <hr />
+        <p class="text-message ">${favoriteMessages[i].text}</p>
+        <hr />
+        <button onClick = "removeFromFavorite('${favoriteMessages[i]._id}')">حذف</button>
+      </div>
     </div>
-  </div>
-    `
-  }
-}else{
-  noFavoriteMessages.classList.remove('d-none')
-  noFavoriteMessages.classList.add('d-block')
-}
+      `
+    }
+  }else{
+    noFavoriteMessages.classList.remove('d-none')
+    noFavoriteMessages.classList.add('d-block')
+    // noMessages.classList.add('d-block')
+    // noMessages.classList.remove('d-none')
+    favMessagesContainer.classList.remove('d-block')
+    favMessagesContainer.classList.add('d-none')
 
+  }
+}
+getFavoriteMessages()
 async function getLink (){
   const { data } = await axios.get('https://saraha-gilt.vercel.app/user/profileLink',{
     headers: {
@@ -122,6 +133,10 @@ faStar.addEventListener("click",  function(){
 // });
 
 
+
+
+
+
 async function getReceivedMessages (){
   try {
   let messages = []
@@ -132,6 +147,7 @@ async function getReceivedMessages (){
       }
     })
     console.log(data);
+    messagesContainer.innerHTML=''
 if (data.messages.length>0) {
   noMessages.classList.add('d-none')
   noMessages.classList.remove('d-block')
@@ -139,17 +155,17 @@ if (data.messages.length>0) {
   messagesContainer.classList.remove('d-none')
   messages = data.messages
   console.log('messages',messages);
-
-counter.innerHTML = `<p>الرسائل : ${messages.length}</p>`
+ 
+  messagesContainer.innerHTML = `<p>الرسائل : ${messages.length}</p>`
   for (let i = 0 ; i < messages.length; i++) {
     messagesContainer.innerHTML += `
     <div class="message__card_container">
     <div class="image w-50">
-      <img src="images/main/s-48.png" alt="" />
+      <img src="./images/main/avatar.png" alt="" />
     </div>
     <div class="message overflow-hidden overflow-auto">
       <div class="logo-name">
-        <i onClick ="toggleFavorite('${messages[i]._id}',this)" class="fa-regular fa-star"></i>
+        <i id="${messages[i]._id}" onClick ="toggleFavorite('${messages[i]._id}',this)" class="fa-regular fa-star"></i>
       </div>
       <hr />
       <p class="text-message ">${messages[i].text}</p>
@@ -159,6 +175,7 @@ counter.innerHTML = `<p>الرسائل : ${messages.length}</p>`
   </div>
     `
   }
+  
 }else{
   noMessages.classList.remove('d-none')
   noMessages.classList.add('d-block')
@@ -167,10 +184,34 @@ counter.innerHTML = `<p>الرسائل : ${messages.length}</p>`
 }
   } catch (error) {
     console.log(error);
+    noMessages.classList.remove('d-none')
+    noMessages.classList.add('d-block')
+    messagesContainer.classList.remove('d-block')
+    messagesContainer.classList.add('d-none')
   }
 }
-getReceivedMessages ()
 
+async function starColor() {
+  
+ await getReceivedMessages()
+  const userInfo= JSON.parse(localStorage.getItem("userData"))
+const wishList=userInfo.wishList
+  
+for (let i = 0; i < wishList.length; i++) {
+
+  const element = document.getElementById(`${wishList[i]._id}`);
+  console.log();
+  console.log(element);
+  if (element) {
+    element.classList = "fa-solid fa-star";
+  }
+  
+  
+}
+  
+}
+  
+   starColor()
 async function addToFavorite(id){
 console.log('getMessageId',id)
 try {
@@ -183,7 +224,8 @@ try {
   })
   console.log(data)
   if (data.message == 'Done') {
-    getUserData(userData._id)
+   await getUserData(userData._id)
+    getFavoriteMessages()
   }
 } catch (error) {
   console.log(error);
@@ -201,7 +243,8 @@ async function removeFromFavorite(id){
     })
     console.log(data)
     if (data.message == 'Done') {
-      getUserData(userData._id)
+    await getUserData(userData._id)
+      getFavoriteMessages()
     }
   } catch (error) {
     console.log(error);
@@ -213,6 +256,7 @@ async function getUserData(id){
     //console.log(data);
     console.log(data.user);
     localStorage.setItem('userData',JSON.stringify(data.user));
+    
   } catch (error) {
     console.log(error);
   }
@@ -239,8 +283,9 @@ async function getUserData(id){
           }
         })
         console.log(data)
-        // if (data.message == 'Done') {
-        // }
+        if (data.message == 'Done') {
+            starColor()
+        }
       } catch (error) {
         console.log(error);
       }
