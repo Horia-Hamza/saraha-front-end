@@ -27,7 +27,10 @@ async function getFavoriteMessages() {
   
   userName.innerHTML  = userData.userName
   const userInfo= JSON.parse(localStorage.getItem("userData"))
-  favoriteMessages = userInfo.wishList
+
+  favoriteMessages = userInfo.wishList.sort((a, b) => {
+    return a.createdAt - b.createdAt;
+  });
   console.log(favoriteMessages)
   console.log('favoriteMessages',favoriteMessages);
   if (favoriteMessages.length>0) {
@@ -48,6 +51,10 @@ async function getFavoriteMessages() {
       </div>
       <div class="message overflow-hidden overflow-auto">
         <div class="logo-name">
+        </div>
+        <div class="row">
+        <p class="text-message align-start col-6 ">${favoriteMessages[i].createdAt.substring(0,10)}</p>
+        <p class="text-message align-end col-6">${favoriteMessages[i].createdAt.substring(11,16)}</p>
         </div>
         <hr />
         <p class="text-message ">${favoriteMessages[i].text}</p>
@@ -121,7 +128,9 @@ if (data.messages.length>0) {
   noMessages.classList.remove('d-block')
   messagesContainer.classList.add('d-block')
   messagesContainer.classList.remove('d-none')
-  messages = data.messages
+  messages = data.messages.sort((a, b) => {
+    return a.createdAt - b.createdAt;
+  });
   console.log('messages',messages);
  
   messagesContainer.innerHTML = `<p>الرسائل : ${messages.length}</p>`
@@ -134,6 +143,10 @@ if (data.messages.length>0) {
     <div class="message overflow-hidden overflow-auto">
       <div class="logo-name">
         <i id="${messages[i]._id}" onClick ="toggleFavorite('${messages[i]._id}',this)" class="fa-regular fa-star"></i>
+      </div>
+      <div class="row">
+      <p class="text-message align-start col-6 ">${messages[i].createdAt.substring(0,10)}</p>
+      <p class="text-message align-end col-6">${messages[i].createdAt.substring(11,16)}</p>
       </div>
       <hr />
       <p class="text-message ">${messages[i].text}</p>
@@ -158,7 +171,6 @@ if (data.messages.length>0) {
     messagesContainer.classList.add('d-none')
   }
 }
-
 async function starColor() {
   
  await getReceivedMessages()
@@ -178,8 +190,8 @@ for (let i = 0; i < wishList.length; i++) {
 }
   
 }
-  
    starColor()
+   
 async function addToFavorite(id){
 console.log('getMessageId',id)
 try {
