@@ -17,6 +17,13 @@ const fileInput = document.getElementById('fileInput')
 
 const succussMessage = document.getElementById('succussMessage')
 const alertMessage = document.getElementById('alert')
+
+const succussMessage1 = document.getElementById('succussMessage1')
+const alertMessage1 = document.getElementById('alert1')
+
+const succussMessage2 = document.getElementById('succussMessage2')
+const alertMessage2 = document.getElementById('alert2')
+
 const deleteBtn = document.getElementById('deleteBtn')
 const deleteImage = document.getElementById('deleteImage')
 if (userData.image == null) {
@@ -115,7 +122,7 @@ async function updateUser(event){
       succussMessage.classList.add('d-none');     
     }
       if (error.response.data.message == "Validation error") {
-         alertMessage.innerHTML = 'required fields'
+         alertMessage.innerHTML = 'بعض الحقول مفقوده'
          alertMessage.classList.remove('d-none');
       alertMessage.classList.add('d-block');
       succussMessage.classList.add('d-none');
@@ -135,17 +142,17 @@ async function updatePassword(event){
        !passwordRegex.test(password.value)||
        !passwordRegex.test(cPassword.value)) {
 
-           alertMessage.innerHTML = 'كلمة المرور يجب أن تحتوي على على الأقل 8 أحرف تتكون من حرف كبير وحرف صغير ورقم.'
-           alertMessage.classList.remove('d-none');
-        alertMessage.classList.add('d-block');
-        succussMessage.classList.add('d-none');
+           alertMessage1.innerHTML = 'كلمة المرور يجب أن تحتوي على على الأقل 8 أحرف تتكون من حرف كبير وحرف صغير ورقم.'
+           alertMessage1.classList.remove('d-none');
+        alertMessage1.classList.add('d-block');
+        succussMessage1.classList.add('d-none');
 
          }
            if (password.value != cPassword.value) {
-   alertMessage.innerHTML = 'password and confirm password miss match'
-   alertMessage.classList.remove('d-none');
-alertMessage.classList.add('d-block');
-succussMessage.classList.add('d-none');
+   alertMessage1.innerHTML = 'كلمه المرور غير متطابقه'
+   alertMessage1.classList.remove('d-none');
+alertMessage1.classList.add('d-block');
+succussMessage1.classList.add('d-none');
 }
       userDetails = {
          oldPassword : oldPassword.value,
@@ -164,20 +171,20 @@ succussMessage.classList.add('d-none');
       )
       console.log('data',data);
       if (data.message == 'Done') {
-         succussMessage.classList.remove('d-none');
-         succussMessage.classList.add('d-block');
-         alertMessage.classList.add('d-none');
-         succussMessage.innerHTML = 'password updated successfully'
+         succussMessage1.classList.remove('d-none');
+         succussMessage1.classList.add('d-block');
+         alertMessage1.classList.add('d-none');
+         succussMessage1.innerHTML = 'تم تغير الرقم السري بنجاح'
       }
 
    } catch (error) {
       console.log(error);
 
       if (error.response.data.message ==  "Password miss match") {
-         alertMessage.innerHTML = 'wrong password'
-         alertMessage.classList.remove('d-none');
-      alertMessage.classList.add('d-block');
-      succussMessage.classList.add('d-none');
+         alertMessage1.innerHTML = 'رقم سري خاطئ'
+         alertMessage1.classList.remove('d-none');
+      alertMessage1.classList.add('d-block');
+      succussMessage1.classList.add('d-none');
       }
       
    }

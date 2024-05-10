@@ -2,7 +2,7 @@ const senderName = document.getElementById('sender')
 const sender = document.getElementById('senderName')
 const senderImage = document.getElementById('senderImage')
 const message = document.getElementById('message')
-
+const userImage = document.getElementById('userImage')
 const succussMessage = document.getElementById('succussMessage')
 const alertMessage = document.getElementById('alert')
 // Get the URL parameters
@@ -19,11 +19,13 @@ async function getUserData(userId){
      const {data} = await axios.get(`https://saraha-gilt.vercel.app/user/${userId}`);
      console.log(data);
      if (data) {
+     
       senderName.innerHTML = data.user.userName
       sender.innerHTML = data.user.userName
-      if (data.image.image == null) {
+      if (data.user.image == null) {
         userImage.innerHTML = `<img class="" src="images/main/avatar.png" alt="profileImage" />`
      }else{
+      //console.log('xxxxxxxxxxxxxxxxxxxxxx');
         userImage.innerHTML = `<img class="" src="${data.user.image.secure_url}" alt="profileImage" />`
      }      console.log(data.user.userName);
      }
@@ -31,25 +33,27 @@ async function getUserData(userId){
      console.log(error);
    }
          }
-
          getUserData(userId)
-
          async function sendMessage(event){
             event.preventDefault()
             try {
                console.log(message.value);
                if(message.value.length >200){
                   alertMessage.innerHTML ='<div class="alert alert-danger">لا يمكن ارسال اكثر من 200 حرف</div>'
+                  succussMessage.innerHTML =''
 
                }else if(message.value.length == 0){
                  alertMessage.innerHTML = '<div class="alert alert-danger">لا يمكن ارسال رساله فارغه </div>'
-              }else if(message.value.length < 5){
-                alertMessage.innerHTML = '<div class="alert alert-danger">لا يمكن ارسال اقل من 5 احرف  </div>'
+                 succussMessage.innerHTML =''
 
+                }else if(message.value.length < 5){
+                alertMessage.innerHTML = '<div class="alert alert-danger">لا يمكن ارسال اقل من 5 احرف  </div>'
+                succussMessage.innerHTML =''
                }else{
                  const {data} = await axios.post(`https://saraha-gilt.vercel.app/user/${userId}/message/sendMessage`,
                {text:message.value}
                );
+               
                  console.log(data);
                  succussMessage.innerHTML =' <div  class="alert alert-success">تم الارسال بنجاح</div>' ;
                  alertMessage.innerHTML = ''

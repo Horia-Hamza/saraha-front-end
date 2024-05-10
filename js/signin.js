@@ -52,8 +52,7 @@ async function getUserData(id){
      getUserData(data.id)
     //const userData = encodeURIComponent(data.token);
      localStorage.setItem('token',JSON.stringify(data.token));
-            //   const redirectUrl = './message.html';
-            //   window.location.href = redirectUrl;
+
    }
    
        } catch (error) {
@@ -61,20 +60,20 @@ async function getUserData(id){
          if (error.response.data.message == "Password miss match" ) {
           alertMessage.classList.add('d-block');
           alertMessage.classList.remove('d-none');
-          alertMessage.innerHTML = 'wrong password'
+          alertMessage.innerHTML = 'رقم سري خاطئ'
              
            }else if(error.response.data.message == "Validation error"){
             alertMessage.classList.add('d-block');
             alertMessage.classList.remove('d-none');
-            alertMessage.innerHTML = 'wrong email'
+            alertMessage.innerHTML = 'اميل خاطئ'
            }else if(error.response.data.message == "Confirm your email first"){
             alertMessage.classList.add('d-block');
             alertMessage.classList.remove('d-none');
-            alertMessage.innerHTML = 'Confirm your email first'
+            alertMessage.innerHTML = 'تحقق من الاميل الخاص بك لتأكيد الحساب'
            }else if(error.response.data.message == "In-valid user"){
             alertMessage.classList.add('d-block');
             alertMessage.classList.remove('d-none');
-            alertMessage.innerHTML = 'email not found'
+            alertMessage.innerHTML = 'الايميل غير موجود'
            }
        }
    }

@@ -17,7 +17,7 @@ async function sendCode(event) {
        'https://saraha-gilt.vercel.app/user/sendCode', {email} );
      console.log(data);
      if (data.message == "Done") {
-      succussMessage.innerHTML = "check your email to get code"
+      succussMessage.innerHTML = "تحقق من الايميل الخاص بك للحصول علي رمز التأكيد"
       succussMessage.classList.remove('d-none');
       succussMessage.classList.add('d-block');
       alertMessage.classList.add('d-none');
@@ -27,7 +27,7 @@ async function sendCode(event) {
    } catch (error) {
      console.log(error);
      if (error.response.data.message == "In-valid user") {
-      alertMessage.innerHTML = 'in-valid email'
+      alertMessage.innerHTML = 'ايميل خاطئ'
       alertMessage.classList.remove('d-none');
    alertMessage.classList.add('d-block');
    succussMessage.classList.add('d-none');
@@ -54,18 +54,12 @@ async function forgetPass(event) {
 
         }
           if (password.value != cPassword.value) {
-  alertMessage.innerHTML = 'password and confirm password miss match'
+  alertMessage.innerHTML = 'الرقم السري غير متطابق'
   alertMessage.classList.remove('d-none');
 alertMessage.classList.add('d-block');
 succussMessage.classList.add('d-none');
 }
-// if (code.value == null ||  password.value == null ||  cPassword.value == null || email.value == null ) {
-//    alertMessage.classList.remove('d-none');
-//    alertMessage.classList.add('d-block');
-//    succussMessage.classList.add('d-none');
-//    alertMessage.innerHTML = 'required fields'
-//    console.log('sffffdfdf');
-// }
+
       const userData = {
          email: userEmail.value,
          code: code.value,
@@ -86,7 +80,7 @@ if (data.message == 'Go to login') {
      console.log(error);
      if (error.response.data.message == "This code is wrong" ||
      error.response.data.message  == 'Validation error' ) {
-      alertMessage.innerHTML = 'this code is wrong'
+      alertMessage.innerHTML = 'الرمز خاطئ'
       alertMessage.classList.remove('d-none');
     alertMessage.classList.add('d-block');
     succussMessage.classList.add('d-none');     

@@ -105,38 +105,6 @@ faStar.addEventListener("click",  function(){
   receivedMessages.classList.remove('d-block')
 });
 
-// nav profile 
-// document.addEventListener('DOMContentLoaded', function() {
-//   const menuLinks = document.querySelectorAll('#menu li');
-
-//   // Add click event listener to each menu item
-//   menuLinks.forEach(link => {
-//     link.addEventListener('click', function() {
-//       // const targetId = this.id.replace('Link', ''); // Extract target div ID
-//       // const targetDiv = document.getElementById(targetId);
-
-//       // Remove 'active' class from all menu items
-//       menuLinks.forEach(link => {
-//         link.classList.remove('active');
-//       });
-
-//       // Add 'active' class to the clicked menu item
-//       this.classList.add('active');
-
-//       // Hide all divs and show the target div
-//       // document.querySelectorAll('.form').forEach(div => {
-//       //   div.style.display = 'none';
-//       // });
-//       // targetDiv.style.display = 'block';
-//     });
-//   });
-// });
-
-
-
-
-
-
 async function getReceivedMessages (){
   try {
   let messages = []

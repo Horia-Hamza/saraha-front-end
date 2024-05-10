@@ -44,7 +44,7 @@ const alertMessage = document.getElementById('alert')
  
            // Handle response, such as displaying a success message or redirecting to another page
            console.log("Sign up successful:", response.data);
-           window.location.href = "./signin.html";
+           window.location.href = "./verifyEmail.html";
          } catch (error) {
            // Handle error, such as displaying an error message to the user
            console.error("Sign up failed:", error.response.data.message);

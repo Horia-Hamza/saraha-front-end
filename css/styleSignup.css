@@ -212,7 +212,7 @@ nav > a img {
   transition-duration: 150ms;
 }
 .form-container form select:focus {
-  background-color: #4a5568;
+  background-color: #4a556830;
   outline: none;
   box-shadow: 0 0 0 2px #3b82f6;
 }
