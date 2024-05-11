@@ -66,7 +66,7 @@ if (JSON.parse(localStorage.getItem("userData"))) {
     &&window.location.pathname != '/forget-password.html'   
     &&window.location.pathname != '/send-message.html'   
     ) {
-      if (window.location.pathname != '/') {
+      if (window.location.pathname == '/') {
         window.location.href ='./index.html';
       } else {
         
