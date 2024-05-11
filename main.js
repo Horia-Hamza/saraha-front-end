@@ -11,7 +11,7 @@ async function includeNavbar() {
 // Function to execute after the navbar is included
 async function initializeApp() {
   console.log(window.location.pathname);
-  await includeNavbar(); // Wait for navbar to be included
+  // await includeNavbar(); // Wait for navbar to be included
   
   // Now you can safely access elements in the navbar
   const signInBtn = document.getElementById('signInBtn');
@@ -30,6 +30,10 @@ async function initializeApp() {
     signInLogo.classList.remove('d-none');
     index.classList.add('d-none');
     index.classList.remove('d-block');
+    myMessages.classList.remove('d-none');
+    myProfile.classList.remove('d-none');
+    signOut.classList.remove('d-none');
+
   } else {
     console.log(signInBtn);
     signInBtn.classList.remove('d-none'); // Ensure it's visible
@@ -58,8 +62,14 @@ if (JSON.parse(localStorage.getItem("userData"))) {
     &&window.location.pathname != '/index.html'
     &&window.location.pathname != '/signup.html'   
     &&window.location.pathname != '/forget-password.html'   
+    &&window.location.pathname != '/send-message.html'   
     ) {
-      window.location.href ='./signin.html';
+      if (window.location.pathname != '/') {
+        window.location.href ='./index.html';
+      } else {
+        
+        window.location.href ='./signin.html';
+      }
       
     }
   }

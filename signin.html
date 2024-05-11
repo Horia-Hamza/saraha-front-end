@@ -5,7 +5,29 @@
     <link rel="stylesheet" href="./css/styleSignin.css" />
   </head>
   <body>
-
+    <header id="header">
+      <nav class="container">
+       <div id="signInLogo"class="d-none">
+         <a href="#" class="logo"
+            ><img src="images/main/sarhne-nav.png" alt="logo"
+          /></a>
+       </div>
+       <div id="signOutLogo"class="d-none">
+         <a href="./index.html" class="logo"
+           ><img src="images/main/sarhne-nav.png" alt="logo"
+         /></a>
+       </div>
+ 
+        <ul>
+          <li id="index"  class="d-none"><a href="./index.html">الرئيسيه</a></li>
+         <li id="myMessages"  class="d-none"><a href="./messages.html">الرسائل</a></li>
+         <li id="myProfile" class="d-none"><a href="./profile.html"> حسابى</a></li>
+          <li id="signOut"  class="d-none"  onclick="logout()" class="text-white logout" type="submit" id="logOut"><a class="logout">تسجيل خروج</a></li>
+          <li id="signUpBtn" class="d-none" ><a href="./signup.html">تسجيل حساب جديد</a></li>
+          <li id="signInBtn" class="d-none" ><a href="./signin.html">دخول للحساب</a></li>
+        </ul>
+      </nav>
+    </header>
     <div class="page-container">
       <div class="form_container_1">
         <div class="form-container">
