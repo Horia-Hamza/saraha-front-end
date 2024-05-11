@@ -53,7 +53,9 @@ async function initializeApp() {
 initializeApp();
 
 if (JSON.parse(localStorage.getItem("userData"))) {
-  if (window.location.pathname=='/signin.html') {
+  if (window.location.pathname=='/signin.html'
+    ||window.location.pathname=='/'
+  ) {
     window.location.href ='./messages.html';
   }
   }
