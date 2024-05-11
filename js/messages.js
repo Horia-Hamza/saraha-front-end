@@ -28,9 +28,8 @@ async function getFavoriteMessages() {
   userName.innerHTML  = userData.userName
   const userInfo= JSON.parse(localStorage.getItem("userData"))
 
-  favoriteMessages = userInfo.wishList.sort((a, b) => {
-    return a.createdAt - b.createdAt;
-  });
+  favoriteMessages = userInfo.wishList.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   console.log(favoriteMessages)
   console.log('favoriteMessages',favoriteMessages);
   if (favoriteMessages.length>0) {
@@ -128,9 +127,8 @@ if (data.messages.length>0) {
   noMessages.classList.remove('d-block')
   messagesContainer.classList.add('d-block')
   messagesContainer.classList.remove('d-none')
-  messages = data.messages.sort((a, b) => {
-    return a.createdAt - b.createdAt;
-  });
+  messages = data.messages.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   console.log('messages',messages);
  
   messagesContainer.innerHTML = `<p>الرسائل : ${messages.length}</p>`

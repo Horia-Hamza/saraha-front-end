@@ -208,6 +208,17 @@ nav > a img {
 .landing .text .sign i {
   margin-left: 5px;
 }
+@media screen and (max-width: 400px) {
+  .landing .text .signin {
+    width: 50% !important;
+    font-size: small;
+  }
+  .landing .text .signup {
+    width: 50% !important;
+    font-size: small;
+  }
+
+}
 .landing .text .signin {
   background-color: #3c5c96;
   margin-left: 10px;

@@ -175,14 +175,23 @@ body {
   font-size: 18px;
 }
 .category {
+  padding-right: 0px !important;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
-  max-width: 50%;
+  width: 70%;
+  max-width: 70%;
   background-color: var(--section-background);
   border-radius: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .category{
+    width: 50% !important;
+    max-width: 50% !important;
+  }
+
 }
 .category li {
   flex-basis: calc(100% / 3);
@@ -190,14 +199,17 @@ body {
   border-radius: 6px;
   text-align: center;
 }
+
 .category .active {
   flex-basis: calc(100% / 3);
   padding: 15px;
   background-color: #fff;
   font-size: 18px;
+  height: 100% !important;
 }
 .category .active a {
   color: #f1786c;
+
 }
 .category li a {
   color: #192a56;

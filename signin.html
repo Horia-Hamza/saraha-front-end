@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
   <head>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/styleSignin.css" />
   </head>
   <body>
-
-    <div class="page-container row">
-      <div class="form_container_1 col-lg-6">
-        <div class="form-container ">
+    <header id="header">
+      <nav class="container">
+       <div id="signInLogo"class="d-none">
+         <a href="#" class="logo"
+            ><img src="images/main/sarhne-nav.png" alt="logo"
+          /></a>
+       </div>
+       <div id="signOutLogo"class="d-none">
+         <a href="./index.html" class="logo"
+           ><img src="images/main/sarhne-nav.png" alt="logo"
+         /></a>
+       </div>
+ 
+        <ul>
+          <li id="index"  class="d-none"><a href="./index.html">الرئيسيه</a></li>
+         <li id="myMessages"  class="d-none"><a href="./messages.html">الرسائل</a></li>
+         <li id="myProfile" class="d-none"><a href="./profile.html"> حسابى</a></li>
+          <li id="signOut"  class="d-none"  onclick="logout()" class="text-white logout" type="submit" id="logOut"><a class="logout">تسجيل خروج</a></li>
+          <li id="signUpBtn" class="d-none" ><a href="./signup.html">تسجيل حساب جديد</a></li>
+          <li id="signInBtn" class="d-none" ><a href="./signin.html">دخول للحساب</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="page-container  row">
+      <div class="form_container_1 col-lg-6 col-md-12 ">
+        <div class="form-container shadow">
           <h2 class="">تسجيل دخول</h2>
           <form class="" id="signinForm">
             <input
